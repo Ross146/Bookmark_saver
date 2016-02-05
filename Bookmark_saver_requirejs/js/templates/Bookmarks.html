@@ -1,0 +1,56 @@
+<h1><%= title%> </h1>
+
+
+<%if (collection && collection.length){%>
+
+
+<div class="pull-right">
+  <a href="#add_bookmark" class="btn btn-primary">
+    <i class="glyphicon glyphicon-plus"></i> Add new
+  </a>
+</div>
+<form action="">
+  <table class="table table-stripped">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Priority</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% _.each(collection, function(item){%>
+    <tr data-id="<%=item.Rowkey%>">
+      <td>
+        <a href="#bookmark/<%=item.Rowkey%>">
+          <%=item.title%>
+        </a>
+      </td>
+      <td><%=item.description%></td>
+      <td>
+        <a href="<%=item.location%>"><%=item.location%></a>
+      </td>
+      <td><%=item.priority%></td>
+      <td class="text-nowrap">
+        <a href="#bookmark/edit/<%=item.Rowkey%>" class="btn btn-default edit">
+          <i class="glyphicon glyphicon-edit"></i> Edit
+        </a>
+
+        <button class="btn btn-danger js-remove delete">
+          <i class="glyphicon glyphicon-remove"></i> Remove
+        </button>
+      </td>
+    </tr>
+
+    <%})%>
+    </tbody>
+  </table>
+
+</form>
+
+<%} else {%>
+<p>No bookmarks. Press "add new bookmark"</p>
+<%}%>

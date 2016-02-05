@@ -1,0 +1,31 @@
+<h1><%=model.Rowkey ? 'Edit': 'Add new'%> item </h1>
+
+<form action="" class="form">
+  <% if (model.Rowkey){%>
+  <input name="Rowkey" type="hidden" value="<%=model.Rowkey%>"/>
+  <%}%>
+
+  <div class="form-group">
+    <label for="title">Title</label> <br/>
+    <input type="text" name="title" id="title" required="required" value="<%=model.title%>"/>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label> <br/>
+    <textarea name="description" id="description" cols="30" rows="10"><%=model.description%></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="location">URL</label> <br/>
+    <input type="text" name="location" id="location" value="<%=model.location%>"/>
+  </div>
+
+  <div class="form-group">
+    <label for="priority">Priority</label> <br/>
+    <input type="number" name="priority" id="priority" value="<%=model.priority || 1%>" min="1" max="10"/>
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="Submit" class="btn btn-info"/>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+body {
+    padding-top: 50px;
+}
+.starter-template {
+    padding: 40px 15px;
+}
+
+td {
+    text-align: left;
+}
+
+.active {
+    background: #ccc;
+}
