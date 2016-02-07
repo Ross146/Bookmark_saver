@@ -39,9 +39,10 @@ function(_, Marionette,template){
 
         },
         onRemove: function(e) {
+            e.preventDefault();
             var id = $(e.currentTarget).closest('tr').data('id');
             this.trigger('remove', id);
-            e.preventDefault();
+
         },
 
         onSort:function(e){

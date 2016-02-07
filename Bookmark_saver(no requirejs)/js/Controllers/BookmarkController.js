@@ -57,6 +57,7 @@ var app = app || {};
             console.log('controller save-data', data);
             var newBookmark = new app.Bookmark(data);
             this.collection.add(newBookmark);
+            console.log(newBookmark);
             newBookmark.save();
             this.options.router.navigate('/', true);
         },

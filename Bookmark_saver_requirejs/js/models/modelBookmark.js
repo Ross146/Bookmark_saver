@@ -5,7 +5,7 @@ define([
 function(Backbone){
     var Bookmark = Backbone.Model.extend({
         idAttribute: "Rowkey",
-        url: 'someUrl',
+        //url: 'someUrl',
         defaults: function () {
             return {
                 'Rowkey': null,

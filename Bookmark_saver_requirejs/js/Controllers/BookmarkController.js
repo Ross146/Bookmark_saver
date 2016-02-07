@@ -19,6 +19,7 @@ define([
         initList: function () {
             console.log('init list page uhahaha');
             this.collection = new Collection();
+            console.log(this.collection)
             this.collection.fetch();
             this.view = new ListView({
                 collection: this.collection
@@ -33,7 +34,7 @@ define([
             console.log('init one', id);
             var _id = id || null;
             if (_id == null) {
-                this.model = new app.Bookmark({
+                this.model = new Model({
                     Rowkey: _id
                 });
             } else {
@@ -61,7 +62,9 @@ define([
             console.log('controller save-data', data);
             var newBookmark = new Model(data);
             this.collection.add(newBookmark);
-            newBookmark.save();
+            console.log(newBookmark);
+            this.collection.fetch()
+            //newBookmark.save();
             this.options.router.navigate('/', true);
         },
         _onRemove: function (id) {

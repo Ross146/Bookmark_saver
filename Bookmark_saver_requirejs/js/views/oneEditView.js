@@ -1,7 +1,8 @@
 define([
         'underscore',
         'marionette',
-        'text!templates/Addone.html'
+        'text!templates/Addone.html',
+        'formSerialize'
     ],
 function (_,Marionette,template) {
   var oneEditView = Marionette.ItemView.extend({
@@ -26,11 +27,12 @@ function (_,Marionette,template) {
     },
 
     _onSubmit:function(e){
+      e.preventDefault();
       var $form = $(e.currentTarget),
           data = $form.serializeJSON({parseAll:true});
+      console.log(data)
       this.trigger('save-data', data);
 
-      e.preventDefault();
     }
 
 

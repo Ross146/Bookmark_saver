@@ -1,9 +1,10 @@
 define([
+    'backbone',
     'marionette',
     'router',
     'views/appView',
 ],
-function (Marionette, Router, ApplicationView ) {
+function (Backbone, Marionette, Router, ApplicationView ) {
 
     var App = Marionette.Application.extend({
         initialize: function () {
@@ -20,8 +21,11 @@ function (Marionette, Router, ApplicationView ) {
 
     Application.router = new Router(Application); //передавать app1 ???
     Application.on('start', function () {
-        console.log('start BackboneHistory');
-        Backbone.history.start();
+        console.log('start application')
+        if(Backbone.history) {
+            console.log('start BackboneHistory');
+            Backbone.history.start();
+        }
     });
     return Application;
 
